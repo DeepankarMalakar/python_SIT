@@ -2,23 +2,26 @@
 # per  annum  can  be  earned  on  alternate  investments  what  would  be  the  minimum  life  of  the 
 # machine to make it a more attractive investment compared to alternative investment?
 
-# Solution with a limit for n
-cost = 6000
-salvage = 2000
-annual_earning = 1000
-alternative_rate = 0.12
+def calculate_npv(life, cash_inflow, discount_rate, salvage_value, initial_cost):
+    # Calculate the NPV
+    npv = 0
+    for t in range(1, life + 1):
+        npv += cash_inflow / (1 + discount_rate) ** t
+    # Add salvage value contribution
+    npv += salvage_value / (1 + discount_rate) ** life
+    # Subtract the initial cost
+    npv -= initial_cost
+    return npv
 
-n = 0
-max_years = 100
+# Machine parameters
+cash_inflow = 1000  # Rs. per year
+discount_rate = 0.12  # 12% per annum
+salvage_value = 2000  # Rs.
+initial_cost = 6000  # Rs.
 
-while n <= max_years:
-    machine_value = salvage + (annual_earning * n)
-    alternative_investment = cost * (1 + alternative_rate) ** n
-    if machine_value > alternative_investment:
+# Using a for loop to find the minimum life
+for life in range(1, 100):  # Assume a maximum limit for life
+    npv = calculate_npv(life, cash_inflow, discount_rate, salvage_value, initial_cost)
+    if npv > 0:
+        print(f"The minimum life of the machine to make it a more attractive investment is {life} years.")
         break
-    n += 1
-
-if n > max_years:
-    print("The machine cannot become a better investment within 100 years.")
-else:
-    print(f"The minimum life of the machine should be {n} years.")

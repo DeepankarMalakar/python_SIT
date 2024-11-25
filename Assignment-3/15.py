@@ -1,7 +1,7 @@
 # 15. When interest compounds q times per year at an annual rate of r % for n years, the principle p 
 # compounds to an amount a as per the following formula. Write a program to read 10 sets of p, r, 
 # n & q and calculate the corresponding as. 
-# 𝑎=𝑝(1+𝑟𝑞)𝑛𝑝 
+# 𝑎=𝑝(1+𝑟𝑞)𝑛𝑝
 
 for i in range(1, 11):
     print(f"Set {i}:")
