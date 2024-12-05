@@ -15,7 +15,7 @@ def binary_search(arr, target):
     return -1
 
 arr = [1, 2, 8, 3, 9, 20, 5, 4]
-# arr.sort()
+arr.sort()    # sorted array
 target = int(input("Enter a target number: "))
 
 result = binary_search(arr, target)
