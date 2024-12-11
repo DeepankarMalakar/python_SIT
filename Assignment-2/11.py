@@ -8,6 +8,7 @@ radius = float(input("Enter the radius of the circle: "))
 x_point, y_point = map(int, input("Enter the point coordinates (x, y): ").split())
 
 distance = math.sqrt((x_point - x_center) ** 2 + (y_point - y_center) ** 2)
+# distance = math.sqrt(pow(x_point - x_center, 2) + pow(y_point - y_center, 2))
 
 if distance < radius:
     print("The point lies inside the circle.")
